@@ -10,11 +10,16 @@ import com.vaadin.ui.TextField
 import com.vaadin.ui.VerticalLayout
 import groovy.transform.CompileStatic
 import groovy.util.logging.Log4j2
+import life.qbic.portal.portlet.services.SearchSampleTrackingService
+import life.qbic.portal.utils.ConfigurationManagerFactory
+import life.qbic.services.ConsulServiceFactory
+import life.qbic.services.ServiceConnector
+import life.qbic.services.connectors.ConsulConnector
 
 /**
  * Entry point for portlet services-testing-portlet. This class derives from {@link QBiCPortletUI}, which is found in the {@code portal-utils-lib} library.
  * 
- * @see <a href=https://github.com/qbicsoftware/portal-utils-lib>portal-utils-lib</a>
+ * @see "https://github.com/qbicsoftware/portal-utils-lib"
  */
 @Theme("mytheme")
 @SuppressWarnings("serial")
@@ -25,7 +30,14 @@ class ServicePortlet extends QBiCPortletUI {
 
     @Override
     protected Layout getPortletContent(final VaadinRequest request) {
-        log.info"Generating content for {}", SamplePortlet.class
+
+        log.info "Generating content for ${ServicePortlet.class}"
+
+        def service = new SearchSampleTrackingService()
+        def serviceList = service.execute()
+        serviceList.each {
+            log.info "Service url found: $it.rootUrl"
+        }
 
         // Verify that Groovy Code works
         def sampleClass = new SampleClass()

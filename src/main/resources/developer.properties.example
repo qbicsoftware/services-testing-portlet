@@ -56,3 +56,4 @@ access.unauthenticated.sampleproperty = true
 
 # path of the yaml file containing statistics for statistics-portlet
 statistics.file.path = ...
+services.registry.url = http://service-registry.local:8500/v1
