@@ -11,10 +11,6 @@ import com.vaadin.ui.VerticalLayout
 import groovy.transform.CompileStatic
 import groovy.util.logging.Log4j2
 import life.qbic.portal.portlet.services.SearchSampleTrackingService
-import life.qbic.portal.utils.ConfigurationManagerFactory
-import life.qbic.services.ConsulServiceFactory
-import life.qbic.services.ServiceConnector
-import life.qbic.services.connectors.ConsulConnector
 
 /**
  * Entry point for portlet services-testing-portlet. This class derives from {@link QBiCPortletUI}, which is found in the {@code portal-utils-lib} library.
